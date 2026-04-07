@@ -8,7 +8,7 @@ export type AuthVariables = {
     session: typeof authLib.$Infer.Session.session | null
 }
 
-export const authMiddleware = createMiddleware<{ Variables: AuthVariables }>(
+export const auth = createMiddleware<{ Variables: AuthVariables }>(
     async (c, next) => {
         const session = await authLib.api.getSession({
             headers: c.req.raw.headers
