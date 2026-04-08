@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "ESNext",
         "module": "ESNext",
-        "moduleResolution": "bundler",
+        "moduleResolution": "node",
         "esModuleInterop": true,
         "strict": true,
         "verbatimModuleSyntax": true,
@@ -11,10 +11,15 @@
         "jsx": "react-jsx",
         "jsxImportSource": "hono/jsx",
         "outDir": "./dist",
+        "rootDir": "./src",
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]
         }
     },
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "drizzle.config.ts"],
+    "tsc-alias": {
+        "resolveFullPaths": true,
+        "verbose": false
+    }
 }
