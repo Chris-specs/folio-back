@@ -42,6 +42,9 @@ export const auth = betterAuth({
     },
     trustedOrigins: process.env.TRUSTED_ORIGINS!.split(','),
     advanced: {
+        crossSubDomainCookies: {
+            enabled: true
+        },
         defaultCookieAttributes: {
             sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
             secure: process.env.NODE_ENV === 'production',
