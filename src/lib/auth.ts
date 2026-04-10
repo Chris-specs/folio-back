@@ -9,6 +9,7 @@ import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 
 console.log('BETTER_AUTH_URL:', process.env.BETTER_AUTH_URL)
+console.log('TRUSTED_ORIGINS:', process.env.TRUSTED_ORIGINS!.split(','))
 console.log(
     'GOOGLE_CLIENT_ID:',
     process.env.GOOGLE_CLIENT_ID ? 'set' : 'not set'
