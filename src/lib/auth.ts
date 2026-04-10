@@ -21,7 +21,7 @@ console.log(
 
 export const auth = betterAuth({
     baseURL: {
-        allowedHosts: [process.env.BETTER_AUTH_URL!]
+        allowedHosts: [process.env.BETTER_AUTH_URL!, '*.vercel.app']
     },
     database: drizzleAdapter(db, {
         provider: 'pg',
