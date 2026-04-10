@@ -8,6 +8,16 @@ import {
 import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 
+console.log('BETTER_AUTH_URL:', process.env.BETTER_AUTH_URL)
+console.log(
+    'GOOGLE_CLIENT_ID:',
+    process.env.GOOGLE_CLIENT_ID ? 'set' : 'not set'
+)
+console.log(
+    'BETTER_AUTH_SECRET:',
+    process.env.BETTER_AUTH_SECRET ? 'set' : 'not set'
+)
+
 export const auth = betterAuth({
     baseURL: {
         allowedHosts: [process.env.BETTER_AUTH_URL!]
