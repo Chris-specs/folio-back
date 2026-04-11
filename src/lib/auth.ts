@@ -26,12 +26,13 @@ export const auth = betterAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
         }
     },
-    trustedOrigins: process.env.TRUSTED_ORIGINS!.split(',')
-    // advanced: {
-    //     defaultCookieAttributes: {
-    //         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-    //         secure: process.env.NODE_ENV === 'production',
-    //         httpOnly: true
-    //     }
-    // }
+    trustedOrigins: process.env.TRUSTED_ORIGINS!.split(','),
+    advanced: {
+        defaultCookieAttributes: {
+            domain:
+                process.env.NODE_ENV === 'production'
+                    ? 'christiansan.com'
+                    : undefined
+        }
+    }
 })
