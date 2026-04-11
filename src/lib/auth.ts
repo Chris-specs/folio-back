@@ -7,7 +7,6 @@ import {
 } from '@/db/schemas'
 import { betterAuth } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
-import { oAuthProxy } from 'better-auth/plugins'
 
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
@@ -20,7 +19,6 @@ export const auth = betterAuth({
             verifications: verificationsTable
         }
     }),
-    plugins: [oAuthProxy()],
     socialProviders: {
         google: {
             prompt: 'select_account',
@@ -28,12 +26,12 @@ export const auth = betterAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
         }
     },
-    trustedOrigins: process.env.TRUSTED_ORIGINS!.split(','),
-    advanced: {
-        defaultCookieAttributes: {
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-            secure: process.env.NODE_ENV === 'production',
-            httpOnly: true
-        }
-    }
+    trustedOrigins: process.env.TRUSTED_ORIGINS!.split(',')
+    // advanced: {
+    //     defaultCookieAttributes: {
+    //         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    //         secure: process.env.NODE_ENV === 'production',
+    //         httpOnly: true
+    //     }
+    // }
 })
